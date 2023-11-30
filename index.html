@@ -52,6 +52,8 @@ The <html> element is known as the root element of a HTML page. All other elemen
         margin: 20px auto;
         padding: 20px;
         width: 100%;
+        white-space: pre-wrap;
+        text-transform: capitalize;
       }
     </style>
   </head>
@@ -96,6 +98,16 @@ The <html> element is known as the root element of a HTML page. All other elemen
         // Reset input value
         input.value = "";
       });
+
+      // QOL function, clicking enter will click the submit button
+      var input = document.getElementById("input-field");
+      input.addEventListener("keypress", function(event) {
+        if(event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("submit-button").click();
+        }
+      })
+
     </script>
   </body>
 </html>
